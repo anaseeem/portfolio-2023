@@ -1,4 +1,4 @@
-import ReactDOM from 'react-dom/client'
+import ReactDOM from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
 import "@/styles/global.css";
 
@@ -9,4 +9,11 @@ if (!rootEl) throw new Error("Root element not found");
 
 const root = ReactDOM.createRoot(rootEl);
 
-root.render(<RouterProvider router={router} />);
+root.render(
+  <RouterProvider
+    router={router}
+    future={{
+      v7_startTransition: true,
+    }}
+  />,
+);
