@@ -1,4 +1,4 @@
-import RootLayoutV2 from "@/layouts/RootLayout";
+import RootLayout from "@/layouts/RootLayout";
 import ProfilePage from "@/pages/Profilepage";
 import AboutPage from "@/pages/AboutPage";
 import ContactPage from "@/pages/ContactPage";
@@ -10,7 +10,7 @@ import { createBrowserRouter, RouteObject } from "react-router";
 const routes: RouteObject[] = [
   {
     path: "/",
-    element: <RootLayoutV2 />,
+    element: <RootLayout />,
     children: [
       {
         path: "/",

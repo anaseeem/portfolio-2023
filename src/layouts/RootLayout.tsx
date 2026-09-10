@@ -1,19 +1,9 @@
-import { Outlet, Link } from "react-router";
+import { Outlet, Link, ScrollRestoration } from "react-router";
 import { Button } from "@/components/ui/button";
-import {
-  TbBrandFacebook,
-  TbBrandGithub,
-  TbBrandLinkedin,
-} from "react-icons/tb";
+import { TbBrandGithub, TbBrandLinkedin, TbBrandGmail } from "react-icons/tb";
 import HireMe from "@/components/special/HireMe";
 import Menu from "@/components/special/Menu";
-
-interface SocialLink {
-  name: string;
-  fullName: string;
-  icon: React.ComponentType<{ className?: string }>;
-  href: string;
-}
+import { SocialLink } from "@/types/baseTypes";
 
 const Logo = () => (
   <Link to={"/"}>
@@ -21,27 +11,31 @@ const Logo = () => (
   </Link>
 );
 
-const RootLayoutV2: React.FC = () => {
-  const social_links: SocialLink[] = [
-    {
-      name: "fb",
-      fullName: "Facebook",
-      icon: TbBrandFacebook,
-      href: "",
-    },
-    {
-      name: "ln",
-      fullName: "Linkedin",
-      icon: TbBrandLinkedin,
-      href: "",
-    },
-    {
-      name: "git",
-      fullName: "Github",
-      icon: TbBrandGithub,
-      href: "",
-    },
-  ];
+const social_links: SocialLink[] = [
+  {
+    target: "_blank",
+    name: "gm",
+    fullName: "Gmail",
+    icon: TbBrandGmail,
+    href: "mailto:ashfaqnaseem1@gmail.com",
+  },
+  {
+    target: "_blank",
+    name: "ln",
+    fullName: "LinkedIn",
+    icon: TbBrandLinkedin,
+    href: "https://www.linkedin.com/in/ashfaq-naseem-959856260",
+  },
+  {
+    target: "_blank",
+    name: "git",
+    fullName: "Github",
+    icon: TbBrandGithub,
+    href: "https://github.com/CurvyLantern",
+  },
+];
+
+const RootLayout: React.FC = () => {
   return (
     <div className="font-secondary">
       <header className="py-5 mb-20">
@@ -77,12 +71,13 @@ const RootLayoutV2: React.FC = () => {
           </p>
 
           {/* social icons */}
-          <ul className="flex gap-5">
+          {/* <ul className="flex gap-5">
             {social_links.map((social, socialIndex) => {
               return (
                 <li key={socialIndex}>
-                  <a
-                    href={social.href ? social.href : "#"}
+                  <Link
+                    target={social.target}
+                    to={social.href ? social.href : "#"}
                     className="transition-colors w-14 h-14 rounded-full border-2 border-background flex items-center justify-center hover:bg-background hover:text-foreground hover:border-foreground"
                   >
                     {social.icon ? (
@@ -92,24 +87,26 @@ const RootLayoutV2: React.FC = () => {
                     ) : (
                       "brand"
                     )}
-                  </a>
+                  </Link>
                 </li>
               );
             })}
-          </ul>
+          </ul> */}
 
-          <Button size="xl" variant="wide" className="">
-            send me email
+          <Button asChild size="xl" variant="wide" className="">
+            <Link to="/contact">send me a message</Link>
           </Button>
         </div>
 
         {/* copyright */}
         <div className="container text-sm text-opacity-25 text-background text-center py-5">
-          copyright &copy; by naseem
+          copyright &copy; by anaseem
         </div>
       </footer>
+
+      <ScrollRestoration />
     </div>
   );
 };
 
-export default RootLayoutV2;
+export default RootLayout;
