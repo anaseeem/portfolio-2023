@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
@@ -6,22 +5,16 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { TbChevronRight, TbMenu } from "react-icons/tb";
+import { TbChevronRight } from "react-icons/tb";
 import MyPhoto from "@/assets/PersonalPhoto.webp";
 import Menu from "@/ui/Menu";
-const Homepage = () => {
+
+const Homepage: React.FC = () => {
   return (
     <div>
       {/* header */}
       <header className="bg-background shadow-md">
         <div className="container">
-          {/* <div className="text-center py-2">
-            <p className="text-xl font-primary lowercase">
-              _n
-              <span className="text-[1.8em] font-bold  text-accent">@</span>
-              seem
-            </p>
-          </div> */}
           <div className="flex items-center py-2">
             <div className="mr-auto">
               <Menu />
@@ -60,7 +53,7 @@ const Homepage = () => {
               {/* cta division */}
               <div className="flex items-center gap-10 py-10">
                 <Button variant="highlight">Hire me</Button>
-                <Link
+                <a
                   href="#"
                   className="group inline-flex flex-col font-bold">
                   <div className="mb-1 inline-flex items-center font-bold">
@@ -70,7 +63,7 @@ const Homepage = () => {
                     </span>
                   </div>
                   <div className="h-[2px] w-[90%] bg-primary"></div>
-                </Link>
+                </a>
               </div>
 
               <div className="py-10">
@@ -96,85 +89,44 @@ const Homepage = () => {
               </h2>
 
               <div
-                className="flex h-full justify-center  bg-no-repeat bg-contain bg-center"
+                className="flex h-full justify-center bg-no-repeat bg-contain bg-center"
                 style={{
                   backgroundImage: `url(${MyPhoto})`,
-                }}>
-                {/* <img
-                className=""
-                src={MyPhoto}
-                alt=""
-              /> */}
-              </div>
+                }}></div>
             </div>
           </section>
         </div>
 
-        {/* statistics section */}
-        <section className="bg-primary">
-          <div className="container flex py-10 ">
-            <div className="flex-1 flex flex-col justify-center ">
-              <h2 className="text-xl font-bold text-primary-foreground">
-                Project Statistics 2023
-              </h2>
-              <div>
-                <Button>Know More</Button>
-              </div>
-            </div>
-            <div className="flex-1">
-              {/* accordio 1 */}
-              <div>
-                <Accordion
-                  type="single"
-                  collapsible>
-                  <AccordionItem
-                    value="item-1"
-                    className="text-primary-foreground">
-                    <AccordionTrigger className="py-2">
-                      Website Design
-                    </AccordionTrigger>
-                    <AccordionContent>Some content goes here</AccordionContent>
-                  </AccordionItem>
-                </Accordion>
-              </div>
-              {/* accordio 2 */}
-              <div>
-                <Accordion
-                  type="single"
-                  collapsible>
-                  <AccordionItem
-                    value="item-2"
-                    className="text-primary-foreground">
-                    <AccordionTrigger className="py-2">
-                      UI/UX design
-                    </AccordionTrigger>
-                    <AccordionContent>Some content goes here</AccordionContent>
-                  </AccordionItem>
-                </Accordion>
-              </div>
-              {/* accordio 3 */}
-              <div>
-                <Accordion
-                  type="single"
-                  collapsible>
-                  <AccordionItem
-                    value="item-3"
-                    className="text-primary-foreground">
-                    <AccordionTrigger className="py-2">
-                      Brand logo designs
-                    </AccordionTrigger>
-                    <AccordionContent>
-                      Yes, it adheres to the golden ratio desing pattern
-                    </AccordionContent>
-                  </AccordionItem>
-                </Accordion>
-              </div>
-            </div>
+        {/* faqs */}
+        <section className="py-20 border-t-2 border-primary">
+          <div className="container">
+            <h2 className="py-10 text-center text-6xl font-extrabold">FAQs</h2>
+
+            <Accordion type="single" collapsible className="w-full">
+              <AccordionItem value="item-1">
+                <AccordionTrigger>Is it accessible?</AccordionTrigger>
+                <AccordionContent>
+                  Yes. It adheres to the WAI-ARIA design pattern.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-2">
+                <AccordionTrigger>Is it styled?</AccordionTrigger>
+                <AccordionContent>
+                  Yes. It comes with default styles that you can customize to
+                  your liking.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-3">
+                <AccordionTrigger>Is it animated?</AccordionTrigger>
+                <AccordionContent>
+                  Yes. It's animated by default, but you can disable it if you
+                  prefer.
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
           </div>
         </section>
       </main>
-
-      {/* footer */}
     </div>
   );
 };

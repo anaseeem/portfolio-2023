@@ -7,7 +7,19 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Button } from "../ui/button";
-const HireMe = ({ socialLinks }) => {
+
+
+interface SocialLink {
+  name: string
+  href?: string
+  icon?: React.ComponentType<{ className?: string }>
+}
+
+interface HireMeProps {
+  socialLinks: SocialLink[]
+}
+
+const HireMe: React.FC<HireMeProps> = ({ socialLinks }) => {
   const email = "ashfaqnaseem1@gmail.com";
 
   return (
@@ -50,7 +62,7 @@ const HireMe = ({ socialLinks }) => {
                   <a
                     href={social.href ? social.href : "#"}
                     className="transition-all border-2 border-primary w-14 h-14 rounded-full bg-foreground text-background flex items-center justify-center hover:bg-background hover:text-foreground hover:border-foreground"
-                    aria-name={social.name}>
+                    aria-label={social.name}>
                     {social.icon ? (
                       <social.icon className="w-6 h-6" />
                     ) : social.name ? (
@@ -68,4 +80,5 @@ const HireMe = ({ socialLinks }) => {
     </Dialog>
   );
 };
+
 export default HireMe;

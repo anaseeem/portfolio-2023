@@ -1,12 +1,10 @@
-import { Button } from "@/components/ui/button";
-import styles from "@/styles/marquee.module.css";
-import HangingPng from "@/assets/hanging.png";
 import CreativePng from "@/assets/creativity.png";
 import BeCreativePng from "@/assets/be-creative.png";
 import LearingPng from "@/assets/learning.png";
 import Marquee from "@/components/sections/Marquee";
 import { Heading1 } from "@/components/special/Typography";
-const AboutPage = () => {
+
+const AboutPage: React.FC = () => {
   return (
     <div className="font-secondary">
       {/* hero */}
@@ -37,7 +35,7 @@ const AboutPage = () => {
               <div className="flex-1 flex items-center justify-center">
                 <img
                   src={CreativePng}
-                  alt=""
+                  alt="Creativity"
                 />
               </div>
             </div>
@@ -98,12 +96,15 @@ const AboutPage = () => {
                 </h4>
                 <p className="w-2/3">
                   Now here's the real deal. Dealing with databases is hard.But I
-                  can get stuff going
+                  love to work with them as they present new challenges every
+                  time.
                 </p>
 
                 <ul className="ml-4 p-4 flex flex-col gap-2 text-xl uppercase list-disc">
+                  <li>Sql</li>
                   <li>MongoDB</li>
-                  <li>Sql (using Prisma ORM)</li>
+                  <li>Firebase</li>
+                  <li>Prisma</li>
                 </ul>
               </article>
             </div>
@@ -111,44 +112,63 @@ const AboutPage = () => {
         </div>
       </article>
 
-      {/* Experience */}
+      <Marquee text="Love to learn new things" />
 
-      {/* Hobbies */}
-      <div className="bg-foreground text-background py-32">
-        <div className="flex items-center justify-center">
-          <div className="w-[300px] h-[300px]">
-            <img
-              width={300}
-              height={300}
-              className="w-full object-contain"
-              src={LearingPng}
-              alt=""
-            />
+      {/* other things i can do */}
+      <article className="mb-20">
+        <div className="container">
+          <h2 className="text-6xl uppercase font-semibold py-10">Other</h2>
+
+          <div className="border-t-2 border-primary grid grid-cols-1 md:grid-cols-2 gap-10 py-10">
+            {/* left item */}
+            <div className="flex flex-col">
+              <h4 className="pb-5 text-3xl font-primary uppercase font-semibold">
+                Ui/Ux design
+              </h4>
+              <p className="font-primary">
+                Not a professional designer but I love trying new design tools
+                and experimenting with new design trends.
+              </p>
+
+              <ul className="ml-4 p-4 flex flex-col gap-2 text-xl uppercase list-disc">
+                <li>Figma</li>
+                <li>Adobe Xd</li>
+                <li>Adobe illustrator</li>
+              </ul>
+
+              <div className="flex-1 flex items-center justify-center">
+                <img
+                  src={BeCreativePng}
+                  alt="Creative design"
+                />
+              </div>
+            </div>
+
+            {/* right item */}
+            <div className="flex flex-col">
+              <h4 className="pb-5 text-3xl font-primary uppercase font-semibold">
+                Learning
+              </h4>
+              <p className="font-primary">
+                I love learning new things. Be it new programming languages ,
+                new design patterns or new technologies as soon as they come
+                out. Learning keeps me motivated and that's why I love what I do
+              </p>
+
+              <div className="flex-1 flex items-center justify-center">
+                <img
+                  src={LearingPng}
+                  alt="Learning"
+                />
+              </div>
+            </div>
           </div>
         </div>
+      </article>
 
-        <p className="leading-normal font-primary text-xl xsm:text-2xl md:text-4xl w-2/3 text-center mx-auto py-20">
-          During my idle time, I like to research about various things. For
-          example, "what a blackhole is". I watch anime, movies and play
-          videogames. I love to cook.Whenever I get a chance I cook whatever
-          comes to mind :V
-        </p>
-
-        <div className="flex items-center justify-center">
-          <div className="w-[300px] h-[300px]">
-            <img
-              width={300}
-              height={300}
-              className="w-full object-contain"
-              src={BeCreativePng}
-              alt=""
-            />
-          </div>
-        </div>
-      </div>
-
-      <Marquee text="Let's talk" />
+      <Marquee text="Keep building amazing things" />
     </div>
   );
 };
+
 export default AboutPage;

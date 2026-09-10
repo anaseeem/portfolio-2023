@@ -1,5 +1,12 @@
 import { cn } from "@/lib/utils";
-export const Heading1 = ({ children, className }) => {
+import { ReactNode } from "react";
+
+interface Heading1Props {
+  children: ReactNode
+  className?: string
+}
+
+export const Heading1: React.FC<Heading1Props> = ({ children, className }) => {
   return (
     <h1
       className={cn(
@@ -11,7 +18,12 @@ export const Heading1 = ({ children, className }) => {
   );
 };
 
-export const Heading2 = ({ children, className }) => {
+interface Heading2Props {
+  children: ReactNode
+  className?: string
+}
+
+export const Heading2: React.FC<Heading2Props> = ({ children, className }) => {
   return (
     <h2
       className={cn(

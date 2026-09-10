@@ -6,8 +6,16 @@ import Project5 from "@/assets/project5.png";
 import Project6 from "@/assets/project6.png";
 import { Heading1 } from "@/components/special/Typography";
 import { TbArrowNarrowDown as ArrowDown } from "react-icons/tb";
-const ProjectsPage = () => {
-  const projects = {
+
+interface Project {
+  name: string
+  desc: string
+  img: string
+  href: string
+}
+
+const ProjectsPage: React.FC = () => {
+  const projects: Record<string, Project> = {
     first: {
       name: "Rongberong",
       desc: "Color palette finder and generator",
@@ -51,9 +59,6 @@ const ProjectsPage = () => {
     <div className="font-secondary">
       <section className="mb-40">
         <div className="container">
-          {/* <h1 className="text-center text-8xl uppercase font-semibold">
-            My projects
-          </h1> */}
           <Heading1 className="float-none text-center">My projects</Heading1>
           <p className="pt-3 text-accent text-center text-xl">
             Here are some of my projects{" "}
@@ -81,7 +86,7 @@ const ProjectsPage = () => {
                     <img
                       className="w-full h-full object-cover rounded-lg"
                       src={project.img}
-                      alt=""
+                      alt={project.name}
                     />
                   </div>
 
@@ -100,4 +105,5 @@ const ProjectsPage = () => {
     </div>
   );
 };
+
 export default ProjectsPage;

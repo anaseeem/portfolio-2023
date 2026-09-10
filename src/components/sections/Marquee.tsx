@@ -1,5 +1,10 @@
 import styles from "@/styles/marquee.module.css";
-const Marquee = ({ text }) => {
+
+interface MarqueeProps {
+  text: string
+}
+
+const Marquee: React.FC<MarqueeProps> = ({ text }) => {
   return (
     <section className="my-40">
       {[0, 0, 0].map((_, rowIdx) => {
@@ -37,4 +42,5 @@ const Marquee = ({ text }) => {
     </section>
   );
 };
+
 export default Marquee;

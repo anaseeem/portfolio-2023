@@ -2,9 +2,18 @@ import { TbBrandLinkedin, TbBrandGithub, TbBrandGmail } from "react-icons/tb";
 import MakeHappenImg from "@/assets/makeHappen.png";
 import Marquee from "@/components/sections/Marquee";
 import { Heading1 } from "@/components/special/Typography";
-const ContactPage = () => {
+
+interface SocialLink {
+  name: string
+  fullName: string
+  icon: React.ComponentType<{ className?: string }>
+  href: string
+  target?: string
+}
+
+const ContactPage: React.FC = () => {
   const email = "ashfaqnaseem1@gmail.com";
-  const social_links = [
+  const social_links: SocialLink[] = [
     {
       name: "gm",
       fullName: "Gmail",
@@ -29,7 +38,7 @@ const ContactPage = () => {
   return (
     <div className="font-secondary">
       <section className="pb-40">
-        <Heading1 className="text-accent text-xl xsm:text-3xl md:text-4xl  text-center font-primary uppercase tracking-tighter flex items-center justify-center pb-40 pt-20">
+        <Heading1 className="text-accent text-xl xsm:text-3xl md:text-4xl text-center font-primary uppercase tracking-tighter flex items-center justify-center pb-40 pt-20">
           <a
             href={`mailto:${email}`}
             className="p-5">
@@ -45,7 +54,7 @@ const ContactPage = () => {
             </p>
             <img
               src={MakeHappenImg}
-              alt=""
+              alt="Make happen"
             />
           </div>
 
@@ -69,7 +78,7 @@ const ContactPage = () => {
                       target={social.target}
                       href={social.href ? social.href : "#"}
                       className="flex items-center justify-between py-5">
-                      <p className="uppercase text-xl ">{social.fullName}</p>{" "}
+                      <p className="uppercase text-xl ">{social.fullName}</p>
                       <social.icon className="w-6 h-6" />
                     </a>
                   </li>
@@ -84,4 +93,5 @@ const ContactPage = () => {
     </div>
   );
 };
+
 export default ContactPage;

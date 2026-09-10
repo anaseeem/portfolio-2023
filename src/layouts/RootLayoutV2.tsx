@@ -7,8 +7,16 @@ import {
 } from "react-icons/tb";
 import HireMe from "@/components/special/HireMe";
 import Menu from "@/components/special/Menu";
-const RootLayoutV2 = () => {
-  const social_links = [
+
+interface SocialLink {
+  name: string
+  fullName: string
+  icon: React.ComponentType<{ className?: string }>
+  href: string
+}
+
+const RootLayoutV2: React.FC = () => {
+  const social_links: SocialLink[] = [
     {
       name: "fb",
       fullName: "Facebook",
@@ -101,4 +109,5 @@ const RootLayoutV2 = () => {
     </div>
   );
 };
+
 export default RootLayoutV2;

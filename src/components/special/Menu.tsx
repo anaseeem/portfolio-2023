@@ -1,12 +1,17 @@
 import { useState, forwardRef } from "react";
 import { Link } from "react-router-dom";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import {} from "react-icons/tb";
 import styles from "./Menu.module.css";
 import { cn } from "@/lib/utils";
 import MenuLightImg from "@/assets/menu-light.png";
-const Menu = () => {
-  const menu_links = [
+
+interface MenuLink {
+  name: string
+  href: string
+}
+
+const Menu: React.FC = () => {
+  const menu_links: MenuLink[] = [
     {
       name: "Projects",
       href: "projects",
@@ -28,9 +33,6 @@ const Menu = () => {
       <div className="flex items-center justify-center md:hidden">
         <Dialog>
           <DialogTrigger asChild>
-            {/* <MenuIcon /> */}
-            {/* <button>hey</button> */}
-
             <button
               onPointerOver={() => {
                 setIsHovered((p) => !p);
@@ -65,7 +67,7 @@ const Menu = () => {
                   <li
                     style={{
                       "--rotate-factor": `${animationState ? degs[idx] : 0}deg`,
-                    }}
+                    } as React.CSSProperties}
                     key={idx}
                     className={cn(
                       "transition-all w-44 bg-white absolute border-2 border-primary flex items-center justify-center rounded-full overflow-hidden group hover:w-48",
@@ -84,11 +86,11 @@ const Menu = () => {
                 style={{
                   clipPath: `circle(50% at 50% 50%)`,
                 }}
-                className="absolute w-full h-full top-0 left-0 bg-background rounded-full  circle">
+                className="absolute w-full h-full top-0 left-0 bg-background rounded-full circle">
                 <img
                   src={MenuLightImg}
                   className="object-cover w-full h-full"
-                  alt=""
+                  alt="Menu background"
                 />
               </li>
             </ul>
@@ -100,7 +102,7 @@ const Menu = () => {
         {menu_links.map((menu, menuIdx) => (
           <li
             key={menuIdx}
-            className="flex-1 rounded-full hover:shadow-md  hover:text-accent transition-colors">
+            className="flex-1 rounded-full hover:shadow-md hover:text-accent transition-colors">
             <Link
               to={menu.href ? menu.href : "#"}
               className="block px-8 py-3 ">
@@ -112,7 +114,10 @@ const Menu = () => {
     </>
   );
 };
-const MenuIcon = forwardRef((_, ref) => {
+
+interface MenuIconProps {}
+
+const MenuIcon = forwardRef<HTMLButtonElement, MenuIconProps>((_, ref) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -136,4 +141,7 @@ const MenuIcon = forwardRef((_, ref) => {
     </button>
   );
 });
+
+MenuIcon.displayName = "MenuIcon";
+
 export default Menu;
