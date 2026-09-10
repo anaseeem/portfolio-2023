@@ -4,7 +4,7 @@ import AboutPage from "@/pages/AboutPage";
 import ContactPage from "@/pages/ContactPage";
 import ProjectsPage from "@/pages/ProjectsPage";
 
-import { createBrowserRouter, RouteObject } from "react-router-dom";
+import { createBrowserRouter, RouteObject } from "react-router";
 // import Homepage from "@/pages/Homepage";
 
 const routes: RouteObject[] = [
@@ -36,11 +36,4 @@ const routes: RouteObject[] = [
   },
 ];
 
-export const router = createBrowserRouter(routes, {
-  future: {
-    v7_relativeSplatPath: true,
-    v7_fetcherPersist: true,
-    v7_normalizeFormMethod: true,
-    v7_partialHydration: true,
-  },
-});
+export const router = createBrowserRouter(routes);

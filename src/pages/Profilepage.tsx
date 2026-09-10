@@ -7,7 +7,7 @@ import { Heading1, Heading2 } from "@/components/special/Typography";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 
 interface Skill {
   name: string;

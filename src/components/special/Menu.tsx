@@ -1,5 +1,5 @@
 import { useState, forwardRef } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import styles from "./Menu.module.css";
 import { cn } from "@/lib/utils";

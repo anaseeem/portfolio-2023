@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { TbMenu } from "react-icons/tb";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import {
   Dialog,
   DialogContent,
