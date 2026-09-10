@@ -10,16 +10,16 @@ import { cn } from "@/lib/utils";
 import { Link } from "react-router-dom";
 
 interface Skill {
-  name: string
-  skillNames: string[]
-  rotation: number
+  name: string;
+  skillNames: string[];
+  rotation: number;
 }
 
 interface Project {
-  name: string
-  desc: string
-  img: string
-  href: string
+  name: string;
+  desc: string;
+  img: string;
+  href: string;
 }
 
 const ProfilePage: React.FC = () => {
@@ -135,10 +135,8 @@ const ProfilePage: React.FC = () => {
             </ProjectColumn>
           </div>
           <div className="flex items-center justify-center py-6">
-            <Button
-              variant="wide"
-              size="xl">
-              <Link to="/projects">See more projects</Link>
+            <Button variant="wide" size="xl">
+              <Link to="projects">See more projects</Link>
             </Button>
           </div>
         </div>
@@ -162,20 +160,20 @@ const ProfilePage: React.FC = () => {
                   }}
                   key={skillIdx}
                   className={cn(
-                    "bg-primary-foreground border-2 border-primary shadow-md rounded-lg md:px-20 py-5 flex flex-col gap-10 md:flex-row items-center"
-                  )}>
+                    "bg-primary-foreground border-2 border-primary shadow-md rounded-lg md:px-20 py-5 flex flex-col gap-10 md:flex-row items-center",
+                  )}
+                >
                   <h4 className="uppercase font-semibold text-2xl">
                     {skill.name}
                   </h4>
                   {/* skills */}
                   <div
-                    className={cn("ml-auto flex items-center justify-center")}>
+                    className={cn("ml-auto flex items-center justify-center")}
+                  >
                     <div className=" md:w-80 gap-2 flex flex-wrap justify-evenly">
                       {skill.skillNames.map((skillName, skillNameIdx) => {
                         return (
-                          <Badge
-                            className="flex-grow-0"
-                            key={skillNameIdx}>
+                          <Badge className="flex-grow-0" key={skillNameIdx}>
                             {skillName}
                           </Badge>
                         );
@@ -187,11 +185,8 @@ const ProfilePage: React.FC = () => {
             })}
           </div>
           <div className="container py-20 flex items-center justify-center">
-            <Button
-              asChild
-              variant="wideInvert"
-              size="xl">
-              <Link to="/about-me">More about me</Link>
+            <Button asChild variant="wideInvert" size="xl">
+              <Link to="about-me">More about me</Link>
             </Button>
           </div>
         </div>
@@ -203,8 +198,8 @@ const ProfilePage: React.FC = () => {
 };
 
 interface ProjectCardProps {
-  project: Project
-  className?: string
+  project: Project;
+  className?: string;
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
@@ -230,17 +225,21 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
 };
 
 interface ProjectColumnProps {
-  children: React.ReactNode
-  className?: string
+  children: React.ReactNode;
+  className?: string;
 }
 
-const ProjectColumn: React.FC<ProjectColumnProps> = ({ children, className }) => {
+const ProjectColumn: React.FC<ProjectColumnProps> = ({
+  children,
+  className,
+}) => {
   return (
     <div
       className={cn(
         "flex md:flex-row flex-col gap-5 md:gap-0 md:border-b-2 border-primary",
-        className
-      )}>
+        className,
+      )}
+    >
       {children}
     </div>
   );

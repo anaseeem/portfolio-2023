@@ -119,11 +119,8 @@ importers:
       react-icons:
         specifier: ^4.10.1
         version: 4.12.0(react@18.3.1)
-      react-router:
-        specifier: ^6.14.2
-        version: 6.30.6(react@18.3.1)
       react-router-dom:
-        specifier: ^6.14.2
+        specifier: ^6.30.6
         version: 6.30.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-use:
         specifier: ^17.4.0

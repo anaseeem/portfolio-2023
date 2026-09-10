@@ -1,12 +1,13 @@
-import RootLayoutV2 from "@/layouts/RootLayoutV2";
+import RootLayoutV2 from "@/layouts/RootLayout";
 import ProfilePage from "@/pages/Profilepage";
 import AboutPage from "@/pages/AboutPage";
 import ContactPage from "@/pages/ContactPage";
 import ProjectsPage from "@/pages/ProjectsPage";
 
 import { createBrowserRouter, RouteObject } from "react-router-dom";
+// import Homepage from "@/pages/Homepage";
 
-export const router = createBrowserRouter([
+const routes: RouteObject[] = [
   {
     path: "/",
     element: <RootLayoutV2 />,
@@ -15,6 +16,10 @@ export const router = createBrowserRouter([
         path: "/",
         element: <ProfilePage />,
       },
+      // {
+      //   path: "/home",
+      //   element: <Homepage />,
+      // },
       {
         path: "/about-me",
         element: <AboutPage />,
@@ -29,4 +34,8 @@ export const router = createBrowserRouter([
       },
     ],
   },
-] as RouteObject[]);
+];
+
+export const router = createBrowserRouter(routes, {
+  future: { v7_relativeSplatPath: true },
+});
