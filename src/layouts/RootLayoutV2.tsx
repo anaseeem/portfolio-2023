@@ -9,11 +9,17 @@ import HireMe from "@/components/special/HireMe";
 import Menu from "@/components/special/Menu";
 
 interface SocialLink {
-  name: string
-  fullName: string
-  icon: React.ComponentType<{ className?: string }>
-  href: string
+  name: string;
+  fullName: string;
+  icon: React.ComponentType<{ className?: string }>;
+  href: string;
 }
+
+const Logo = () => (
+  <Link to={"/"}>
+    <p className="font-cursive text-3xl font-bold mt-3">an</p>
+  </Link>
+);
 
 const RootLayoutV2: React.FC = () => {
   const social_links: SocialLink[] = [
@@ -41,9 +47,7 @@ const RootLayoutV2: React.FC = () => {
       <header className="py-5 mb-20">
         <div className="container flex items-center justify-between">
           {/* logo */}
-          <Link to={"/"}>
-            <p className="font-cursive text-3xl font-bold mt-3">naseem</p>
-          </Link>
+          <Logo />
           <div className="flex items-center">
             {/* available */}
             <p className="hidden lg:block w-36 mr-10">
@@ -79,7 +83,8 @@ const RootLayoutV2: React.FC = () => {
                 <li key={socialIndex}>
                   <a
                     href={social.href ? social.href : "#"}
-                    className="transition-colors w-14 h-14 rounded-full border-2 border-background flex items-center justify-center hover:bg-background hover:text-foreground hover:border-foreground">
+                    className="transition-colors w-14 h-14 rounded-full border-2 border-background flex items-center justify-center hover:bg-background hover:text-foreground hover:border-foreground"
+                  >
                     {social.icon ? (
                       <social.icon className="w-6 h-6" />
                     ) : social.name ? (
@@ -93,10 +98,7 @@ const RootLayoutV2: React.FC = () => {
             })}
           </ul>
 
-          <Button
-            size="xl"
-            variant="wide"
-            className="">
+          <Button size="xl" variant="wide" className="">
             send me email
           </Button>
         </div>
